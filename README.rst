@@ -1,38 +1,19 @@
 GRequests: Asynchronous Requests
 ===============================
 
-GRequests allows you to use Requests with Gevent to make asynchronous HTTP
-Requests easily.
+grequests 0.2.0 with exception_handler, gevent 1.0 compatible 
 
+See https://github.com/kennethreitz/grequests for usage
 
-Usage
------
+To suppress warnings
+```
+grequests.map(rs, exception_handler=lambda *x: True)
+```
 
-Usage is simple::
+To handle
+```
+def eh(p1,p2):
+  print h1, h2
 
-    import grequests
-
-    urls = [
-        'http://www.heroku.com',
-        'http://python-tablib.org',
-        'http://httpbin.org',
-        'http://python-requests.org',
-        'http://kennethreitz.com'
-    ]
-
-Create a set of unsent Requests::
-
-    >>> rs = (grequests.get(u) for u in urls)
-
-Send them all at the same time::
-
-    >>> grequests.map(rs)
-    [<Response [200]>, <Response [200]>, <Response [200]>, <Response [200]>, <Response [200]>]
-
-
-Installation
-------------
-
-Installation is easy with pip::
-
-    $ pip install grequests
+grequests.map(rs, exception_handler=eh)
+```
