@@ -1,5 +1,4 @@
-GRequests: Asynchronous Requests
-===============================
+### GRequests: Asynchronous Requests
 
 grequests 0.2.0 with exception_handler, gevent 1.0 compatible 
 
